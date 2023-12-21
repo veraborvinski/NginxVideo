@@ -34,24 +34,3 @@ variable "image" {
   description = "The image to deploy to"
   default     = "cos-cloud/cos-73-11647-217-0"
 }
-
-
-
-variable "user" {
-  type    = string
-  default = "sayedimran00786"
-}
-
-variable "email" {
-  type    = string
-  default = "sayedimran00786@gmail.com"
-}
-variable "privatekeypath" {
-  type    = string
-  default = "./gcp-key"
-}
-
-variable "publickeypath" {
-  type    = string
-  default = "./gcp-key.pub"
-}
