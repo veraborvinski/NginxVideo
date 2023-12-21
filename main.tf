@@ -15,7 +15,7 @@ resource "google_compute_instance" "test-machine" {
   machine_type = var.machine_type
   zone         = var.zone
   tags         = google_compute_firewall.allow-http-ssh.target_tags
-*/
+/*
   metadata = {
     ssh-keys = "${var.user}:${file(var.publickeypath)}"
   }
