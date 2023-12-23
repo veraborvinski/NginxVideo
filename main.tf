@@ -15,7 +15,7 @@ resource "google_compute_instance" "test-machine" {
   name         = var.machine_name
   machine_type = var.machine_type
   zone         = var.zone
-  tags         = ["allow-http-ssh"]
+  tags         = ["http-server","allow-http-ssh"]
 
 /*
   metadata = {
