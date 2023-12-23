@@ -35,13 +35,13 @@ variable "image" {
   default     = "cos-cloud/cos-73-11647-217-0"
 }
 
-variable "username" {
+variable "google_username" {
     type = string 
-    description = "your google account email
+    description = "your google account email"
     sensitive = true
 }
 
-variable "privatekey" {
+variable "google_privatekey" {
     type = string 
     description = "your gcloud private key"
     sensitive = true
