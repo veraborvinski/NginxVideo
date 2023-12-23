@@ -18,7 +18,7 @@ resource "google_compute_instance" "test-machine" {
   tags         = ["allow-http-ssh"]
 
   metadata = {
-    ssh-keys = "${var.google_username}:${file(var.google_publickey)}"
+    ssh-keys = "${var.google_username}:${file(var.google_privatekey)}"
   }
 
   boot_disk {
