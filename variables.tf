@@ -47,3 +47,9 @@ variable "google_privatekey" {
     sensitive = true
 }
 
+variable "google_publickey" {
+    type = string 
+    description = "your gcloud public key"
+    sensitive = true
+}
+
