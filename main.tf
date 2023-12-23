@@ -42,7 +42,7 @@ resource "google_compute_instance" "test-machine" {
     }
     inline = [
       "git clone https://github.com/veraborvinski/NginxVideo.git",
-      "cd NginxVideo"
+      "cd NginxVideo",
       "sh ./Build"
     ]
   }
