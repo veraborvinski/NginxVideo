@@ -39,7 +39,7 @@ resource "google_compute_instance" "test-machine" {
       type        = "ssh"
       user        = var.google_username
       host        = google_compute_instance.test-machine.network_interface[0].access_config[0].nat_ip
-      private_key = file(var.google_privatekey)
+      private_key = var.google_privatekey
     }
     inline = [
       "git clone https://github.com/veraborvinski/NginxVideo.git",
