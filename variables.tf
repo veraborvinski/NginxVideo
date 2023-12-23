@@ -7,7 +7,7 @@ variable "machine_name" {
 variable "project" {
   type        = string
   description = "The project ID to deploy to"
-  default     = "level-slate-373806"
+  default     = "kinetic-dryad-405523"
 }
 
 variable "region" {
