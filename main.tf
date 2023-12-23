@@ -28,6 +28,8 @@ resource "google_compute_instance" "test-machine" {
       user        = var.google_username
       host        = google_compute_instance.test-machine.network_interface[0].access_config[0].nat_ip
       private_key = var.google_privatekey
+      timeout = "2m"
+      agent = false
     }
 
     inline = [
