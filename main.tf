@@ -1,16 +1,3 @@
-/*
-resource "google_compute_firewall" "allow-http-ssh" {
-  name    = "allow-http-ssh"
-  network = "default"
-  allow {
-    protocol = "tcp"
-    ports    = ["80", "22"]
-  }
-  source_ranges = ["0.0.0.0/0"]
-  target_tags   = ["allow-http-ssh"]
-}
-*/
-
 resource "google_compute_instance" "test-machine" {
   name         = var.machine_name
   machine_type = var.machine_type
@@ -35,14 +22,14 @@ resource "google_compute_instance" "test-machine" {
   }
 
   provisioner "remote-exec" {
-  /*
+  
     connection {
       type        = "ssh"
       user        = var.google_username
       host        = google_compute_instance.test-machine.network_interface[0].access_config[0].nat_ip
       private_key = var.google_privatekey
     }
-*/
+
     inline = [
       "git clone https://github.com/veraborvinski/NginxVideo.git",
       "cd NginxVideo",
