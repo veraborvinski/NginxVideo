@@ -20,7 +20,14 @@ resource "google_compute_instance" "test-machine" {
 
     }
   }
+/*
+  provisioner "local-exec" {
+    command = "chrome ${google_compute_instance.test-machine.network_interface[0].access_config[0].nat_ip}"
+  }
+*/
+}
 
+resource "null_resource" "ssh-connection" {
   provisioner "remote-exec" {
   
     connection {
@@ -38,10 +45,9 @@ resource "google_compute_instance" "test-machine" {
       "sh ./Build"
     ]
   }
-/*
-  provisioner "local-exec" {
-    command = "chrome ${google_compute_instance.test-machine.network_interface[0].access_config[0].nat_ip}"
-  }
-*/
+
+  depends_on = [
+    google_compute_instance.test-machine
+ ]
 }
 
