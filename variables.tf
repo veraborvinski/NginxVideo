@@ -13,14 +13,14 @@ variable "project" {
 variable "region" {
   type        = string
   description = "The region to deploy to"
-  default     = "eu-central2"
+  default     = "europe-west2"
 
 }
 
 variable "zone" {
   type        = string
   description = "The zone to deploy to"
-  default     = "eu-central2-c"
+  default     = "europe-west2-c"
 }
 
 variable "machine_type" {
