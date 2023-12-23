@@ -34,3 +34,15 @@ variable "image" {
   description = "The image to deploy to"
   default     = "cos-cloud/cos-73-11647-217-0"
 }
+
+variable "username" {
+    type = string 
+    description = "your google account email
+    sensitive = true
+}
+
+variable "privatekey" {
+    type = string 
+    description = "your gcloud private key"
+    sensitive = true
+}
