@@ -1,3 +1,4 @@
+/*
 resource "google_compute_firewall" "allow-http-ssh" {
   name    = "allow-http-ssh"
   network = "default"
@@ -8,13 +9,13 @@ resource "google_compute_firewall" "allow-http-ssh" {
   source_ranges = ["0.0.0.0/0"]
   target_tags   = ["allow-http-ssh"]
 }
-
+*/
 
 resource "google_compute_instance" "test-machine" {
   name         = var.machine_name
   machine_type = var.machine_type
   zone         = var.zone
-  tags         = google_compute_firewall.allow-http-ssh.target_tags
+  tags         = "allow-http-ssh"
 /*
   metadata = {
     ssh-keys = "${var.user}:${file(var.publickeypath)}"
