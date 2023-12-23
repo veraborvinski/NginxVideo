@@ -32,13 +32,13 @@ resource "google_compute_instance" "test-machine" {
 
     }
   }
-/*
+
   provisioner "remote-exec" {
     connection {
       type        = "ssh"
-      user        = var.user
+      user        = var.username
       host        = google_compute_instance.test-machine.network_interface[0].access_config[0].nat_ip
-      private_key = file(var.privatekeypath)
+      private_key = var.privatekey
     }
     inline = [
       "git clone https://github.com/veraborvinski/NginxVideo.git",
@@ -46,7 +46,7 @@ resource "google_compute_instance" "test-machine" {
       "sh ./Build"
     ]
   }
-
+/*
   provisioner "local-exec" {
     command = "chrome ${google_compute_instance.test-machine.network_interface[0].access_config[0].nat_ip}"
   }
