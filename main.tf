@@ -4,11 +4,11 @@ resource "google_compute_instance" "test-machine" {
   zone         = var.zone
   tags         = ["http-server","allow-http-ssh"]
 
-/*
+
   metadata = {
-    ssh-keys = "${var.google_username}:${file(var.google_privatekey)}"
+    ssh-keys = "${var.google_username}:${var.google_publickey}"
   }
-*/
+
   boot_disk {
     initialize_params {
       image = var.image
