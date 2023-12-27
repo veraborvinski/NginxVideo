@@ -20,11 +20,18 @@ resource "google_compute_instance" "test-machine" {
 
     }
   }
+
+  user_data = <<-EOT
+     git clone https://github.com/veraborvinski/NginxVideo.git
+      cd NginxVideo
+      sh ./Build
+  EOT
+}
 /*
   provisioner "local-exec" {
     command = "chrome ${google_compute_instance.test-machine.network_interface[0].access_config[0].nat_ip}"
   }
-*/
+
 }
 
 resource "null_resource" "ssh-connection" {
@@ -50,4 +57,6 @@ resource "null_resource" "ssh-connection" {
     google_compute_instance.test-machine
  ]
 }
+
+*/
 
