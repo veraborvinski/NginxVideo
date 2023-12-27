@@ -4,21 +4,16 @@ resource "google_compute_instance" "test-machine" {
   zone         = var.zone
   tags         = ["http-server","allow-http-ssh"]
 
-/*
+
   metadata = {
     //ssh-keys = "${var.google_username}:${var.google_publickey}"
-     user_data = <<-EOT
+     startup_script = <<-EOF
      git clone https://github.com/veraborvinski/NginxVideo.git
       cd NginxVideo
       sh ./Build
-    EOT
+    EOF
   }
-*/
 
-  metadata_startup_script = <<SCRIPT
-    echo test of user_data | sudo tee /tmp/user_data.log
-    curl -sf -H 'Metadata-Flavor:Google' http://metadata/computeMetadata/v1/instance/network-interfaces/0/ip | sudo tee -a /tmp/user_data.log
-    SCRIPT
 
   boot_disk {
     initialize_params {
