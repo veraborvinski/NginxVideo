@@ -6,7 +6,12 @@ resource "google_compute_instance" "test-machine" {
 
 
   metadata = {
-    ssh-keys = "${var.google_username}:${var.google_publickey}"
+    //ssh-keys = "${var.google_username}:${var.google_publickey}"
+     user_data = <<-EOT
+     git clone https://github.com/veraborvinski/NginxVideo.git
+      cd NginxVideo
+      sh ./Build
+    EOT
   }
 
   boot_disk {
@@ -20,12 +25,6 @@ resource "google_compute_instance" "test-machine" {
 
     }
   }
-
-  user_data = <<-EOT
-     git clone https://github.com/veraborvinski/NginxVideo.git
-      cd NginxVideo
-      sh ./Build
-  EOT
 }
 /*
   provisioner "local-exec" {
