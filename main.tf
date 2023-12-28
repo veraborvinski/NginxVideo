@@ -9,7 +9,7 @@ resource "google_compute_instance" "test-machine" {
     //ssh-keys = "${var.google_username}:${var.google_publickey}"
      user-data = file("./setup.sh")
   }
-  metadata_startup_script = "echo ${md5(file("./setup.sh"))}"
+  metadata_startup_script = "echo ${file("./setup.sh")}"
 
   boot_disk {
     initialize_params {
