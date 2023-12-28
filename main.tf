@@ -7,7 +7,7 @@ resource "google_compute_instance" "test-machine" {
 
   metadata = {
     //ssh-keys = "${var.google_username}:${var.google_publickey}"
-     user_data = <<-EOF
+     startup_script = <<-EOF
      git clone https://github.com/veraborvinski/NginxVideo.git
       cd NginxVideo
       sh ./Build
