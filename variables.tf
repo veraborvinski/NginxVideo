@@ -32,7 +32,7 @@ variable "machine_type" {
 variable "image" {
   type        = string
   description = "The image to deploy to"
-  default     = "cos-cloud/cos-73-11647-217-0"
+  default     = "ubuntu-os-cloud/ubuntu-2204-lts""
 }
 
 variable "google_username" {
