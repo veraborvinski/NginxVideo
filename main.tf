@@ -4,20 +4,11 @@ resource "google_compute_instance" "test-machine" {
   zone         = var.zone
   tags         = ["http-server","allow-http-ssh"]
 
-
-  metadata = {
-    //ssh-keys = "${var.google_username}:${var.google_publickey}"
-     //user-data = file("./setup.sh")
-  }
- 
-
   boot_disk {
     initialize_params {
       image = var.image
     }
   }
-
- metadata_startup_script = file("./setup.sh")
 
   network_interface {
     network = "default"
@@ -25,6 +16,11 @@ resource "google_compute_instance" "test-machine" {
 
     }
   }
+}
+
+metadata = {
+    //ssh-keys = "${var.google_username}:${var.google_publickey}"
+    startup-script = file("./setup.sh")
 }
 /*
   provisioner "local-exec" {
