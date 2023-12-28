@@ -16,12 +16,13 @@ resource "google_compute_instance" "test-machine" {
 
     }
   }
-}
 
-metadata = {
+  metadata = {
     //ssh-keys = "${var.google_username}:${var.google_publickey}"
     startup-script = file("./setup.sh")
+  }
 }
+
 /*
   provisioner "local-exec" {
     command = "chrome ${google_compute_instance.test-machine.network_interface[0].access_config[0].nat_ip}"
