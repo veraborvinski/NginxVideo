@@ -17,10 +17,13 @@ resource "google_compute_instance" "test-machine" {
     }
   }
 
+metadata_startup_script = startup-script = file("./setup.sh")
+/*
   metadata = {
     //ssh-keys = "${var.google_username}:${var.google_publickey}"
     startup-script = file("./setup.sh")
   }
+*/
 }
 
 /*
