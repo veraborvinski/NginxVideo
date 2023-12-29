@@ -1,3 +1,20 @@
+resource "google_compute_instance_from_machine_image" "tpl" {
+  provider = google-beta
+  name     = var.machine_name
+  zone     = var.zone
+
+  source_machine_image = "projects/var.projectid/global/machineImages/videoserver"
+
+  /*
+can_ip_forward = false
+  labels = {
+    my_key = "my_value"
+  }
+*/
+}
+
+/*
+
 resource "google_compute_instance" "test-machine" {
   name         = var.machine_name
   machine_type = var.machine_type
@@ -20,15 +37,14 @@ resource "google_compute_instance" "test-machine" {
 metadata_startup_script = <<EOF
                             echo hello
                             EOF
-/*
+
   metadata = {
     //ssh-keys = "${var.google_username}:${var.google_publickey}"
     startup-script = file("./setup.sh")
   }
-*/
+
 }
 
-/*
   provisioner "local-exec" {
     command = "chrome ${google_compute_instance.test-machine.network_interface[0].access_config[0].nat_ip}"
   }
