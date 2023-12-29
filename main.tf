@@ -17,7 +17,9 @@ resource "google_compute_instance" "test-machine" {
     }
   }
 
-metadata_startup_script = startup-script = file("./setup.sh")
+metadata_startup_script = <<EOF
+                            echo hello
+                            EOF
 /*
   metadata = {
     //ssh-keys = "${var.google_username}:${var.google_publickey}"
