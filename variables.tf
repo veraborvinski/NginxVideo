@@ -22,34 +22,3 @@ variable "zone" {
   description = "The zone to deploy to"
   default     = "europe-west2-c"
 }
-
-variable "machine_type" {
-  type        = string
-  description = "The machine type to deploy to"
-  default     = "e2-medium"
-}
-
-variable "image" {
-  type        = string
-  description = "The image to deploy to"
-  default     = "ubuntu-os-cloud/ubuntu-2204-lts"
-}
-
-variable "google_username" {
-    type = string 
-    description = "your google account email"
-    sensitive = true
-}
-
-variable "google_privatekey" {
-    type = string 
-    description = "your gcloud private key"
-    sensitive = true
-}
-
-variable "google_publickey" {
-    type = string 
-    description = "your gcloud public key"
-    sensitive = true
-}
-
