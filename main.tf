@@ -1,5 +1,5 @@
 resource "google_compute_instance_from_machine_image" "tpl" {
-  provider = google
+  provider = google-beta
   name     = var.machine_name
   zone     = var.zone
 
