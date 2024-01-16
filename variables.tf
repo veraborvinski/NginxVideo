@@ -1,7 +1,7 @@
 variable "machine_name" {
   type        = string
   description = "The machine name"
-  default     = "video"
+  default     = "video2"
 }
 
 variable "project" {
